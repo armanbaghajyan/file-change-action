@@ -38,10 +38,10 @@ class DirectoryCheckSvc(win32serviceutil.ServiceFramework):
         while not self.stop_requested:
             time.sleep(30)
             try:
-                FilesInDirectory = Directory("C:\\Users\\a.baghajyan\\Downloads\\file-change-action-master\\Folder")
+                FilesInDirectory = Directory("Path\\to\\Directory")
                 get_list = FilesInDirectory.get_files()
 
-                if not os.path.isfile("C:\\Users\\a.baghajyan\\Downloads\\file-change-action-master\\filelist.txt"):
+                if not os.path.isfile("Path\\to\\text\\file\\where\\registers\\changes"):
                     FilesInDirectory.write_in_file(get_list)
 
                 lastlist = FilesInDirectory.read_from_file()
