@@ -6,7 +6,7 @@ class Directory():
     def __init__(self, directory):
         self.directory = directory
         # self.pwd = os.getcwd() + "\\filelist.txt"
-        self.pwd = "C:\\Users\\a.baghajyan\\Downloads\\file-change-action-master\\filelist.txt"
+        self.pwd = "Path\\to\\changes\\registering\\directory"
 
     def get_files(self):
         filelist = []
