@@ -9,7 +9,7 @@ import time
 from directorylisting import Directory
 
 
-class HelloWorldSvc(win32serviceutil.ServiceFramework):
+class DirectoryCheckSvc(win32serviceutil.ServiceFramework):
     _svc_name_ = "DitectoryCheck"
     _svc_display_name_ = "Directory Check"
     _svc_description_ = "Checks given directory for any added or removed files and sending email"
