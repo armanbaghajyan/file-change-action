@@ -57,4 +57,4 @@ class DirectoryCheckSvc(win32serviceutil.ServiceFramework):
                 print(Error)
 
 if __name__ == '__main__':
-    win32serviceutil.HandleCommandLine(HelloWorldSvc)
+    win32serviceutil.HandleCommandLine(DirectoryCheckSvc)
