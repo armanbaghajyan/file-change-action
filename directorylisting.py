@@ -5,7 +5,8 @@ class Directory():
     """Working with Directory Changes"""
     def __init__(self, directory):
         self.directory = directory
-        self.pwd = os.getcwd() + "\\filelist.txt"
+        # self.pwd = os.getcwd() + "\\filelist.txt"
+        self.pwd = "C:\\Users\\a.baghajyan\\Downloads\\file-change-action-master\\filelist.txt"
 
     def get_files(self):
         filelist = []
@@ -27,7 +28,7 @@ class Directory():
         return filelist
 
     def compare_files(self, list1, list2):
-        """Compare Files list for getting removed anded added files"""
+        """Compare Files list for getting removed and added files"""
         c = []
         for i in list1:
             match = False
@@ -46,9 +47,9 @@ class Directory():
 
     def sent_email(self,addedFiles, removedFiles):
         smtp_srv = 'smtp.gmail.com'
-        send_from = 'send_from'
-        passwd = 'passsword'
-        send_to = 'send_to'
+        send_from = 'armanbaxajyan@gmail.com'
+        passwd = 'rubenemin'
+        send_to = 'arman.baghajyan@efusoft.com'
         message = 'Subject: File Statuse Update.\nFiles Changed \n'
         if len(addedFiles) > 0:
             message += 'ADDED FILES\n'
@@ -66,18 +67,3 @@ class Directory():
         smtpObj.sendmail(send_from, send_to, str(message))
         smtpObj.quit()
 
-
-
-FilesInDirectory = Directory("D:\Python\Directorylisting\Folders")
-get_list = FilesInDirectory.get_files()
-#FilesInDirectory.write_in_file(get_list)
-lastlist = FilesInDirectory.read_from_file()
-added = FilesInDirectory.compare_files(get_list, lastlist)
-print(added)
-removed = FilesInDirectory.compare_files(lastlist, get_list)
-print(removed)
-if len(added+removed) > 0:
-    FilesInDirectory.sent_email(added, removed)
-    FilesInDirectory.write_in_file(get_list)
-else:
-    print("NOTHING TO SEND")
